@@ -1,6 +1,2 @@
-node_modules
-.node_modules
-.suo
-slnx.sqlite
-VSWorkspaceState.json
-.vs
+node_modules/
+.vs/
