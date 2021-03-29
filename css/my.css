@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Graphik-regular";
+    src: url("fonts/GraphikLCG-Regular.ttf");
+}
+
+body {
+    background-color: #ffffff !important
+}
+
+.container main>.container {
+    padding: 60px 15px 0;
+}
+
+.question {
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px 5px;
+}
+
+.question img {
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+div.question {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+div.question h2 {
+    font-family: "Graphik-regular";
+    font-size: 20px;
+    color: #a52222;
+}
+
+.info {
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px 5px;
+}
