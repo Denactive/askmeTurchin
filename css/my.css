@@ -4,11 +4,7 @@
 }
 
 body {
-    background-color: #ffffff !important
-}
-
-.container main>.container {
-    padding: 60px 15px 0;
+    background-color: #b8b8b8 !important
 }
 
 .question {
@@ -16,9 +12,39 @@ body {
     border: 1px solid gray;
     border-radius: 15px;
     padding: 10px 5px;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    color: #ffffff;
 }
 
-.question img {
+.row-flex-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: brown;
+}
+
+.avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    font-family: "Graphik-regular";
+    font-size: 30px;
+    color: #171717;
+    background-color: aquamarine;
+}
+
+.avatar {
+    display: flex;
     width: 150px;
     height: 150px;
     box-sizing: border-box;
@@ -26,16 +52,48 @@ body {
     border-radius: 10px;
 }
 
-div.question {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
-    color: #ffffff;
+.like-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 40px;
+}
+
+.like-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    width: 150px;
+    font-family: "Graphik-regular";
+    font-size: 30px;
+    color: #4d4d4d;
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: forestgreen;
+}   
+
+.text-container {
+    width: calc(100% - 170px);
+    background-color: brown;
+}
+
+.question-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 div.question h2 {
     font-family: "Graphik-regular";
-    font-size: 20px;
-    color: #a52222;
+    color: #4d4d4d;
 }
 
 .info {
@@ -43,4 +101,22 @@ div.question h2 {
     border: 1px solid gray;
     border-radius: 15px;
     padding: 10px 5px;
+}
+
+.user-card {
+    width: 300px;
+    height: 80px;
+    color: #ffffff;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.user-card a {
+    color: aquamarine;
 }
