@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Graphik-regular";
-    src: url("fonts/GraphikLCG-Regular.ttf");
+    src: url("../fonts/GraphikLCG-Regular.ttf");
 }
 
 body {
@@ -9,6 +9,8 @@ body {
 
 .question {
     box-sizing: border-box;
+    box-shadow: 1px 1px 3px 0.5px;
+
     border: 1px solid gray;
     border-radius: 15px;
     padding: 10px 5px;
@@ -20,15 +22,12 @@ body {
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
-    color: #ffffff;
 }
 
-.row-flex-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: brown;
+.question h2 {
+    font-size: 35px;
+    text-shadow: -1px -1px 0 #000000;
+
 }
 
 .avatar-wrapper {
@@ -40,7 +39,6 @@ body {
     font-family: "Graphik-regular";
     font-size: 30px;
     color: #171717;
-    background-color: aquamarine;
 }
 
 .avatar {
@@ -48,8 +46,9 @@ body {
     width: 150px;
     height: 150px;
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid rgb(56, 56, 56);
     border-radius: 10px;
+
 }
 
 .like-icons {
@@ -64,23 +63,23 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: space-between; */
     width: 150px;
     font-family: "Graphik-regular";
     font-size: 30px;
-    color: #4d4d4d;
+    color: black;
 }
 
 .text-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: forestgreen;
 }   
 
 .text-container {
     width: calc(100% - 170px);
-    background-color: brown;
+    font-family: "Graphik-regular";
+    font-size: 20px;
+    color: #171717;
 }
 
 .question-footer {
@@ -101,6 +100,7 @@ div.question h2 {
     border: 1px solid gray;
     border-radius: 15px;
     padding: 10px 5px;
+    box-shadow: 1px 1px 3px 0.5px;
 }
 
 .user-card {
@@ -119,4 +119,12 @@ div.question h2 {
 
 .user-card a {
     color: aquamarine;
+}
+
+.text-shadowed {
+    text-shadow: -1px -1px 0 #171717;
+}
+
+a {
+    text-shadow: -1px -1px 0 #171717;
 }
