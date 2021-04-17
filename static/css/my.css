@@ -5,15 +5,16 @@
 
 body {
     background-image: url("../img/MegatronWQHD.jpg");
-    /* background-image: url("../img/unnamed.jpg"); */
     background-position: 50%;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 .question-block {
     /* background-color: #b8b8b8c9 !important; */
     background-color: #b8b8b8cb;
-    box-sizing:border-box;
+    box-sizing: border-box;
     border: 5px solid #313131;
 }
 
@@ -31,11 +32,11 @@ body {
     justify-content:flex-start;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
+    /* font-size: 15px; */
 }
 
 .question h2 {
-    font-size: 35px;
+    /* font-size: 35px; */
     text-shadow: -1px -1px 0 #000000;
 
 }
@@ -47,7 +48,7 @@ body {
     width: 150px;
     height: 100%;
     font-family: "Graphik-regular";
-    font-size: 30px;
+    /* font-size: 30px; */
     color: #171717;
 }
 
@@ -75,7 +76,7 @@ body {
     align-items: center;
     width: 150px;
     font-family: "Graphik-regular";
-    font-size: 30px;
+    /* font-size: 30px; */
     color: black;
 }
 
@@ -148,6 +149,7 @@ a {
 .paginator {
     height: 50px;
     padding: 20px;
+    width: 100%;
 }
 
 .page_btn{

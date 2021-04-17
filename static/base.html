@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -46,14 +45,14 @@
         </form>
         <div class="user-card align-self-end-flex align-self-end container-fluid me-2">
           <div class="row">
-            <div class="col-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
-            <div class="col-8">
+            <div class="col-xl-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
+            <div class="col-xl-8">
               <div class="row">
                 <strong>RatchetTheSanitator</strong>
               </div>
               <div class="row m-1">
-                <div class="col-6"><a href="#">settings</a></div>
-                <div class="col-6"><a href="#">log out </a></div>
+                <div class="col-xl-6"><a href="#">settings</a></div>
+                <div class="col-xl-6"><a href="#">log out </a></div>
               </div>
             </div>
           </div>
@@ -64,27 +63,32 @@
 </header>
 
 <!-- Begin page content -->
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 overflow-visible">
 <div class="container-fluid">
   <div class="row vh-100">
     <!-- left pic -->
-    <div class="col-3" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
-    <div class="col-6 question-block">
+    <div class="col-xl-3" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
+    <div class="col-xl-6 question-block">
     <!-- central block -->
-      <div class="container h-75">
-
-      </div>
+      <div class="container">
+        <!-- Заголовок -->
+        <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; ">
+          <div class="text-shadowed d-flex"><h1>Заголовок</h1></div>
+          <div class="d-flex m-4"><a href="#">ссылка</a></div>
+        </div>
+        <!-- Тело страницы -->
+        
     <!-- central block end-->
     </div>
     <!-- right pict  -->
-    <div class="col-3" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
+    <div class="col-xl-3" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
   </div>
 </div>
 </main>
 
-<footer class="footer mt-auto py-3 bg-dark">
+<footer class="footer py-2 fixed-bottom bg-dark">
   <div class="container">
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-around align-items-center">
       <div class="text-white d-flex">(c) Turchin D </div>
       <div class=" text-white d-flex">[HW Web TP]</div>
     </div>
