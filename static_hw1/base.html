@@ -41,18 +41,18 @@
         </ul> -->
         <form class="d-flex ">
           <input class="form-control aquamarine-border me-2" type="search" placeholder="Search" aria-label="Search">
-          <button id="search-button" type="button" class="btn text-white bg-secondary aquamarine-border">Ask!</button>
+          <button id="search-button" type="button" class="btn text-white bg-secondary aquamarine-border">ASK!</button>
         </form>
-        <div class="user-card align-self-end-flex align-self-end container-fluid me-2">
+        <div class="user-card align-self-end container-fluid me-2">
           <div class="row">
-            <div class="col-xl-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
-            <div class="col-xl-8">
+            <div class="col-xl-4 col-sm-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
+            <div class="col-xl-8 col-sm-8">
               <div class="row">
                 <strong>RatchetTheSanitator</strong>
               </div>
               <div class="row m-1">
-                <div class="col-xl-6"><a href="#">settings</a></div>
-                <div class="col-xl-6"><a href="#">log out </a></div>
+                <div class="col-xl-6 col-sm-6"><a href="#">settings</a></div>
+                <div class="col-xl-6 col-sm-6"><a href="#">log out </a></div>
               </div>
             </div>
           </div>
@@ -66,25 +66,18 @@
 <main class="flex-shrink-0 overflow-visible">
 <div class="container-fluid">
   <div class="row vh-100">
-    <!-- left pic -->
-    <div class="col-xl-3" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
-    <div class="col-xl-6 question-block">
-      <!-- v central block v -->
+
+    <!-- v tags v -->
+    <div class="col-xl-6 col-sm-10 position-fixed offset-xl-3 offset-sm-1" style="margin-top: 100px;">
       <div class="container">
-        <!-- Заголовок -->
-        <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; ">
-          <div class="text-shadowed d-flex"><h1>New Topics</h1></div>
-          <div class="d-flex m-4"><a href="#">popular</a></div>
+        <div class="d-flex flex-row align-items-center justify-content-start">
+          <div class="text-shadowed d-flex"><h1></br></h1></div>
+          <div class="d-flex m-4"><a href="#"></a></br></div>
         </div>
         <div class="row">
-          <!-- v Контент страницы v -->
-          <div class="col-xl-7 me-2">
-          
-          </div>
-          <!-- ^ Контент страницы ^ -->
-          <div class="col-xl-4 info">
-            <div class="container">
-              <div class="row flex-row align-items-start justify-content-start">
+          <div class="col-xl-4 offset-xl-8 col-sm-4 offset-sm-8">
+            <div class="container info">
+              <div class="row flex-row ps-3">
                 <h2 class="text-shadowed">Popular Tags</h2>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color: aqua;" href="#">Spark</button>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:yellow" href="#">Fashion</button>
@@ -106,10 +99,34 @@
           </div>
         </div>
       </div>
-      <!-- ^ central block end ^ -->
     </div>
+    <!-- ^ tags ^ -->
+
+    <!-- left pic -->
+    <div class="col-xl-3 col-sm-1" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
+    <div class="col-xl-6 col-sm-10 question-block">
+    <!-- central block -->
+      <div class="container">
+        <!-- Заголовок -->
+        <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; ">
+          <div class="text-shadowed d-flex"><h1>New Topics</h1></div>
+          <div class="d-flex m-4"><a href="#"></br></a></div>
+        </div>
+        <!-- Вопросы -->
+        <div class="row">
+          <div class="col-xl-8 col-sm-8 me-2">
+            <div class="row info">
+                <!-- v Контент страницы v -->
+
+                <!-- ^ Контент страницы ^ -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^ central block end ^ -->
     <!-- right pict  -->
-    <div class="col-xl-3" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
+    <div class="col-xl-3 col-sm-1" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
   </div>
 </div>
 </main>
