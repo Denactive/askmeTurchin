@@ -109,19 +109,31 @@
       <div class="container">
         <!-- Заголовок -->
         <div class="row">
-          <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; z-index: 1500;">
-            <div class="text-shadowed d-flex"><h1>Heading</h1></div>
-            <div class="d-flex m-4"><a href="#">URL</a></div>
+          <div class="d-flex flex-row align-items-center justify-content-start page_content" style="margin-top:100px; z-index: 1">
+            <div class="text-shadowed d-flex"><h1>Log in</h1></div>
+            <div class="d-flex m-4"><a href="#"></br></a></div>
           </div>
         </div>
         <!-- Вопросы -->
         <div class="row">
           <div class="col-xl-8 col-sm-8 me-2 page_content">
-            <div class="row info">
-                <!-- v Контент страницы v -->
-
-                <!-- ^ Контент страницы ^ -->
+            <!-- v Контент страницы v -->
+            <form class="info">
+              <div class="mb-3 ms-3 me-3">
+                <label for="logLogin" class="form-label"><strong>Login</strong></label>
+                <input type="text" class="form-control info input-group" id="logLogin" placeholder="логин" required>
+              </div>
+              <div class="mb-3 ms-3 me-3">
+                  <label for="logPassword" class="form-label">Password</label>
+                  <input type="password" class="input-group form-control info is-invalid" id="logPassword" placeholder="секретный шифр" required>
+                  <div id="logPassword"  class="invalid-feedback ms-2">Wrong username or password</div>
+              </div>
+              <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Log in!</button>
+            </form>
+            <div class="d-block zindex-tooltip mb-5">
+              <a href="registration.html"> Have no account? Create!</a>
             </div>
+            <!-- ^ Контент страницы ^ -->
           </div>
         </div>
       </div>

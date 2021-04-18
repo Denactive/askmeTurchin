@@ -81,7 +81,7 @@
                 <h2 class="text-shadowed">Popular Tags</h2>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color: aqua;" href="#">Spark</button>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:yellow" href="#">Fashion</button>
-                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:peru" href="#">Colonization</button>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:peru" href="#">Invasion</button>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color: firebrick;" href="#">CyberTron</button>
                 <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:aquamarine" href="#">Decepticons</button>
               </div>
@@ -108,13 +108,15 @@
     <!-- central block -->
       <div class="container">
         <!-- Заголовок -->
-        <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; ">
-          <div class="text-shadowed d-flex"><h1>New Topics</h1></div>
-          <div class="d-flex m-4"><a href="#">popular</a></div>
+        <div class="row">
+          <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; z-index: 1;">
+            <div class="text-shadowed d-flex"><h1>New Topics</h1></div>
+            <div class="d-flex m-4"><a href="#">popular</a></div>
+          </div>
         </div>
         <!-- Вопросы -->
         <div class="row">
-          <div class="col-xl-8 col-sm-8 me-2">
+          <div class="col-xl-8 col-sm-8 me-2 page_content">
             <div class="row question info">
               <div class="row">
                 <div class="avatar-wrapper">
@@ -125,7 +127,7 @@
                 </div>
                 <div class="text-container">
                   <h2>Desipticons should be killed</h2>
-                  <p>some another bullshit</p>
+                  <p>some another text...</p>
                 </div>
               </div>
               <div class="row align-items-center">
@@ -158,7 +160,7 @@
                 </div>
                 <div class="text-container">
                   <h2>Autobots should be killed</h2>
-                  <p>some another bullshit</p>
+                  <p>some another text...</p>
                 </div>
               </div>
               <div class="row align-items-center">
@@ -186,12 +188,12 @@
         <div class="row" style="margin-top: 20px; margin-bottom: 50px;">
           <div class = "col-xl-8 col-sm-8 d-flex flex-column align-items-start justify-content-end position-relative" >
             <div class="paginator info d-flex flex-row justify-content-start align-items-center">
-              <button class="text-shadowed selected_page_btn d-flex me-3" href="#">1</button>
+              <button class="text-shadowed page_btn page_btn_select d-flex me-3" href="#">1</button>
               <button class="text-shadowed page_btn d-flex me-3" href="#">2</button>
               <button class="text-shadowed page_btn d-flex me-3" href="#">3</button>
               <button class="text-shadowed page_btn d-flex me-3" href="#">4</button>
               <button class="text-shadowed page_btn d-flex me-3" href="#">5</button>
-              <button class="text-shadowed d-flex me-3" href="#" style="background-color: #00000000; border: none;">. . .</button>
+              <button class="text-shadowed etc d-flex" href="#">. . .</button>
             </div>
           </div>
         </div>

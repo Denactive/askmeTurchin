@@ -109,9 +109,9 @@
       <div class="container">
         <!-- Заголовок -->
         <div class="row">
-          <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; z-index: 1500;">
-            <div class="text-shadowed d-flex"><h1>Heading</h1></div>
-            <div class="d-flex m-4"><a href="#">URL</a></div>
+          <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; z-index: 1">
+            <div class="text-shadowed d-flex"><h1>Settings: Bumblebee</h1></div>
+            <div class="d-flex m-4"><a href="#"></br></a></div>
           </div>
         </div>
         <!-- Вопросы -->
@@ -119,7 +119,28 @@
           <div class="col-xl-8 col-sm-8 me-2 page_content">
             <div class="row info">
                 <!-- v Контент страницы v -->
-
+                <form>
+                  <div class="mb-3 ms-3 me-3">
+                    <label for="uLogin" class="form-label"><strong>Login</strong></label>
+                    <input type="text" class="form-control info input-group" id="uLogin" placeholder="логин">
+                  </div>
+                  <div class="mb-3 ms-3 me-3">
+                    <label for="uEmail" class="form-label"><strong>E-mail</strong></label>
+                    <input type="text" class="form-control info input-group" id="uEmail" placeholder="электронная почта">
+                  </div>
+                  <div class="mb-3 ms-3 me-3">
+                    <label for="uNickname" class="form-label"><strong>Nickname</strong></label>
+                    <input type="text" class="form-control info input-group" id="uNickname" placeholder="имя на сайте">
+                  </div>
+                  <div class="mb-3 ms-3 me-3">
+                    <label for="uAvatar" class="form-label"><strong>Avatar</strong></label>
+                    <div class="preview info" id="uAvatar">
+                      <img src="img/bumblebee.png" class="preview" width="250px" height="250px">
+                      <input type="file" class="form-control info input-group">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Save</button>
+                </form>
                 <!-- ^ Контент страницы ^ -->
             </div>
           </div>
