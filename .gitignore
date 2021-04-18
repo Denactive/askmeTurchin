@@ -10,7 +10,10 @@ askme_turchin/.vscode/
 askme_turchin/*.pyc
 askme_turchin/__pycache__/
 askme_turchin/askme_turchin/__pycache__/
+askme_turchin/requirements.txt
 .idea/
 .vscode/
 *.pyc
 __pycache__/
+
+возможные\ темы.txt
