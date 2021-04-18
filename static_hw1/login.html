@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <title>[ASKme] Turchin</title>
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicons -->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="css/my.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h1>ASK<small> Turchin</small></h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item"></li>
+        </ul> -->
+        <form class="d-flex ">
+          <input class="form-control aquamarine-border me-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="search-button" type="button" class="btn text-white bg-secondary aquamarine-border">ASK!</button>
+        </form>
+        <div class="user-card align-self-end container-fluid me-2">
+          <div class="row">
+            <div class="col-xl-4 col-sm-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
+            <div class="col-xl-8 col-sm-8">
+              <div class="row">
+                <strong>RatchetTheSanitator</strong>
+              </div>
+              <div class="row m-1">
+                <div class="col-xl-6 col-sm-6"><a href="#">settings</a></div>
+                <div class="col-xl-6 col-sm-6"><a href="#">log out </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0 overflow-visible">
+<div class="container-fluid">
+  <div class="row vh-100">
+
+    <!-- v tags v -->
+    <div class="col-xl-6 col-sm-10 position-fixed offset-xl-3 offset-sm-1" style="margin-top: 100px;">
+      <div class="container">
+        <div class="d-flex flex-row align-items-center justify-content-start">
+          <div class="text-shadowed d-flex"><h1></br></h1></div>
+          <div class="d-flex m-4"><a href="#"></a></br></div>
+        </div>
+        <div class="row">
+          <div class="col-xl-4 offset-xl-8 col-sm-4 offset-sm-8">
+            <div class="container info">
+              <div class="row flex-row ps-3">
+                <h2 class="text-shadowed">Popular Tags</h2>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color: aqua;" href="#">Spark</button>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:yellow" href="#">Fashion</button>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:peru" href="#">Colonization</button>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color: firebrick;" href="#">CyberTron</button>
+                <button class="text-shadowed tag_btn me-3 mb-2" style="background-color:aquamarine" href="#">Decepticons</button>
+              </div>
+              <div class="row align-items-start">
+                <h2 class="text-shadowed">Help to recover Cybertron!</h2>
+                <h4>Top-5 energon donaters</h4>
+                <a href="#">Optimus Prime</a>
+                <a href="#">Jetfire</a>
+                <a href="#">Sentinel Prime</a>
+                <a href="#">Lockdown</a>
+                <a href="#">Ratchet</a>
+                <div class="row align-items-end mt-2"><a href="#">Find out more about Cybertron recoverage govermental program</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^ tags ^ -->
+
+    <!-- left pic -->
+    <div class="col-xl-3 col-sm-1" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
+    <div class="col-xl-6 col-sm-10 question-block">
+    <!-- central block -->
+      <div class="container">
+        <!-- Заголовок -->
+        <div class="row">
+          <div class="d-flex flex-row align-items-center justify-content-start page_content" style="margin-top:100px; z-index: 1">
+            <div class="text-shadowed d-flex"><h1>Log in</h1></div>
+            <div class="d-flex m-4"><a href="#"></br></a></div>
+          </div>
+        </div>
+        <!-- Вопросы -->
+        <div class="row">
+          <div class="col-xl-8 col-sm-8 me-2 page_content">
+            <!-- v Контент страницы v -->
+            <form class="info">
+              <div class="mb-3 ms-3 me-3">
+                <label for="logLogin" class="form-label"><strong>Login</strong></label>
+                <input type="text" class="form-control info input-group" id="logLogin" placeholder="логин" required>
+              </div>
+              <div class="mb-3 ms-3 me-3">
+                  <label for="logPassword" class="form-label">Password</label>
+                  <input type="password" class="input-group form-control info is-invalid" id="logPassword" placeholder="секретный шифр" required>
+                  <div id="logPassword"  class="invalid-feedback ms-2">Wrong username or password</div>
+              </div>
+              <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Log in!</button>
+            </form>
+            <div class="d-block zindex-tooltip mb-5">
+              <a href="registration.html"> Have no account? Create!</a>
+            </div>
+            <!-- ^ Контент страницы ^ -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^ central block end ^ -->
+    <!-- right pict  -->
+    <div class="col-xl-3 col-sm-1" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
+  </div>
+</div>
+</main>
+
+<footer class="footer py-2 fixed-bottom bg-dark">
+  <div class="container">
+    <div class="d-flex flex-row justify-content-around align-items-center">
+      <div class="text-white d-flex">(c) Turchin D </div>
+      <div class=" text-white d-flex">[HW Web TP]</div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

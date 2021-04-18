@@ -1,6 +1,19 @@
-node_modules
-.node_modules
-.suo
-slnx.sqlite
-VSWorkspaceState.json
-.vs
+node_modules/
+package.json
+package-lock.json
+server.js
+
+.vs/
+askme_turchin/venv
+askme_turchin/.idea/
+askme_turchin/.vscode/
+askme_turchin/*.pyc
+askme_turchin/__pycache__/
+askme_turchin/askme_turchin/__pycache__/
+askme_turchin/requirements.txt
+.idea/
+.vscode/
+*.pyc
+__pycache__/
+
+возможные\ темы.txt
