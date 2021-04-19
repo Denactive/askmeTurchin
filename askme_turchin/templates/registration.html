@@ -1,0 +1,43 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  Registration
+{% endblock page_heading %}
+
+{% block page_content %}
+<form class="info">
+  <div class="mb-3 ms-3 me-3">
+    <label for="regLogin" class="form-label"><strong>Login</strong></label>
+    <input type="text" class="form-control info input-group is-invalid" id="regLogin" placeholder="логин" required>
+    <div id="regLogin"  class="invalid-feedback ms-2">This user already exist</div>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="regEmail" class="form-label"><strong>E-mail</strong></label>
+    <input type="text" class="form-control info input-group is-invalid" id="regEmail" placeholder="электронная почта" required>
+    <div id="regEmail"  class="invalid-feedback ms-2">This email is already used by another user</div>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="regNickname" class="form-label"><strong>Nickname</strong></label>
+    <input type="text" class="form-control info input-group" id="regNickname" placeholder="имя на сайте" required>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="regPassword1" class="form-label"><strong>Password</strong></label>
+    <input type="password" class="input-group form-control info is-invalid" id="regPassword1" placeholder="секретный шифр" required>
+    <div id="regPassword1"  class="invalid-feedback ms-2">Weak password</div>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="regPassword2" class="form-label"><strong>Repeat password</strong></label>
+    <input type="password" class="input-group form-control info is-invalid" id="regPassword2" placeholder="тот же шифр" required>
+    <div id="regPassword2"  class="invalid-feedback ms-2">Passwords do not match!</div>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="regAvatar" class="form-label"><strong>Avatar</strong></label>
+    <input type="file" class="form-control info input-group" placeholder="Upload image" id="regAvatar">
+  </div>
+  <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Register!</button>
+</form>
+<div class="d-block mb-5">
+  <a href="login.html">Already have account? Log in!</a>
+</div>
+{% endblock page_content %}

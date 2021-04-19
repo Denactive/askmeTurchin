@@ -1,0 +1,39 @@
+{% load static %}
+<div class="row question info">
+  <div class="row">
+    <div class="avatar-wrapper">
+      <div class="avatar" style="background-image: url('{% static iquestion.avatarlink %}'); background-size: cover;"></div>
+      <div style="display: flex;">
+        <a class="graphik-space-black-links-30" href="{{ iquestion.userlink }}">{{ iquestion.username }}</a>
+      </div>
+    </div>
+    <div class="text-container">
+      <h2>
+        <a href="{% url "question" pk=iquestion.id %}">{{ iquestion.title }}</a>
+      </h2>
+      <p>{{ iquestion.text }}</p>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="like-section d-flex justify-content-between">
+      <div class="like-icons">
+        <div style="display: flex;"><img src="{% static "img/like.png" %}" width="24px" height="24px"/></div>
+        <div style="display: flex;"><img src="{% static "img/dislike.png" %}" width="24px" height="24px"/></div>
+      </div>
+      <div><strong>{{ iquestion.rating }}</strong></div> 
+    </div>
+    <div class="question-footer">
+      <div class="d-flex">
+        <div><a href="{% url "question" pk=iquestion.id %}">answers({{ iquestion.answers_num }})</a></div>
+        <div class="px-2">
+          <strong class="graphik-space-black">Tags:</strong> 
+            {% comment %} TODO: dynamic reverse tag drop {% endcomment %}
+            {% for itag in iquestion.tags %}
+                <a href="#">{{itag.tag}}</a>
+                {% comment %} <a href="{% url "tag" iquestion.tag %}">{{itag.tag}}</a> {% endcomment %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

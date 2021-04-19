@@ -1,0 +1,29 @@
+{% load static %}
+<!-- v answer unit v -->
+<div class="row answer info">
+  <div class="row">
+    <div class="avatar-wrapper">
+      <div class="avatar" style="background-image: url('{% static ianswer.avatarlink %}'); background-size: cover;"></div>
+      <div style="display: flex;">
+        <a href="{{ianswer.userlink}}">{{ianswer.username}}</a>
+      </div>
+    </div>
+    <div class="text-container">
+      <p>
+        {{ianswer.text}}
+      </p>
+    </div>
+  </div>
+  <div class="row align-items-start justify-content-start">
+      <div class="like-section d-flex justify-content-between">
+        <div class="like-icons">
+          <div style="display: flex;"><img src="{% static "img/like.png" %}" width="24px" height="24px"/></div>
+          <div style="display: flex;"><img src="{% static "img/dislike.png" %}" width="24px" height="24px"/></div>
+        </div>
+        <div><strong>{{ ianswer.rating }}</strong></div> 
+      </div>  
+      <div class="mb-3 d-flex text-container form-check">
+        <input type="checkbox" class="form-check-input me-1">Mark as correct
+      </div>
+  </div>  
+</div>

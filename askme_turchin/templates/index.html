@@ -1,0 +1,16 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  New Topics
+{% endblock page_heading %}
+{% block page_heading_url %}
+  <a style="font-size: 30px;" href="#">Popular</a>
+{% endblock page_heading_url %}
+
+{% block page_content %}
+  {% for iquestion in questions %}
+    {% include "include/question_unit.html" %}
+  {% endfor %}
+  {% include "include/paginator.html" %}
+{% endblock page_content %}

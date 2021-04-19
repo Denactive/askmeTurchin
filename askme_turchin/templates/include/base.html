@@ -1,10 +1,12 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
     <title>[ASKme] Turchin</title>
     <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
     <!-- Favicons -->
     <style>
       .bd-placeholder-img {
@@ -23,7 +25,7 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="css/my.css" rel="stylesheet">
+    <link href="{% static "css/my.css" %}" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
     
@@ -41,18 +43,18 @@
         </ul> -->
         <form class="d-flex ">
           <input class="form-control aquamarine-border me-2" type="search" placeholder="Search" aria-label="Search">
-          <button id="search-button" type="button" class="btn text-white bg-secondary aquamarine-border">Search</button>
+          <button id="search-button" type="button" class="btn text-white bg-secondary aquamarine-border">ASK!</button>
         </form>
-        <div class="user-card align-self-end-flex align-self-end container-fluid me-2">
+        <div class="user-card align-self-end container-fluid me-2">
           <div class="row">
-            <div class="col-xl-4 user-avatar" style="background-image: url(img/optimus.png); background-size: cover;"></div>
-            <div class="col-xl-8">
+            <div class="col-xl-4 col-sm-4 user-avatar" style="background-image: url('{% static "img/optimus.png" %}'); background-size: cover;"></div>
+            <div class="col-xl-8 col-sm-8">
               <div class="row">
                 <strong>RatchetTheSanitator</strong>
               </div>
               <div class="row m-1">
-                <div class="col-xl-6"><a href="#">settings</a></div>
-                <div class="col-xl-6"><a href="#">log out </a></div>
+                <div class="col-xl-6 col-sm-6"><a href="#">settings</a></div>
+                <div class="col-xl-6 col-sm-6"><a href="#">log out </a></div>
               </div>
             </div>
           </div>
@@ -66,22 +68,42 @@
 <main class="flex-shrink-0 overflow-visible">
 <div class="container-fluid">
   <div class="row vh-100">
+    {% include "include/side_bar.html" %}
     <!-- left pic -->
-    <div class="col-xl-3" style="background-color: #090909; background-position: 63%; background-image: url(img/epic\ optimus.jpg); background-size: cover;"></div>
-    <div class="col-xl-6 question-block">
+    <div class="col-xl-3 col-sm-1 side-pict-left"></div>
+    <div class="col-xl-6 col-sm-10 question-block">
     <!-- central block -->
       <div class="container">
         <!-- Заголовок -->
-        <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; ">
-          <div class="text-shadowed d-flex"><h1>Заголовок</h1></div>
-          <div class="d-flex m-4"><a href="#">ссылка</a></div>
+        <div class="row">
+          <div class="d-flex flex-row align-items-center justify-content-start" style="margin-top:100px; z-index: 1;">
+            <div class="text-shadowed d-flex">
+              <h1>
+              {% block page_heading %}
+              {% endblock page_heading %}
+              </h1>
+            </div>
+            <div class="d-flex m-4 page-headingurl">
+              {% block page_heading_url %}
+              {% endblock page_heading_url %}
+            </div>
+          </div>
         </div>
-        <!-- Тело страницы -->
-        
-    <!-- central block end-->
+        <!-- Тело -->
+        <div class="row">
+          <div class="col-xl-8 col-sm-8 me-2 mb-5 page_content">
+            <!-- v Контент страницы v -->
+            {% block page_content %}
+            
+            {% endblock page_content %}
+            <!-- ^ Контент страницы ^ -->
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- ^ central block end ^ -->
     <!-- right pict  -->
-    <div class="col-xl-3" style="background-color: #090909; background-position: 80%; background-image: url(img/epic\ bumblebee.jpg); background-size: cover;"></div>
+    <div class="col-xl-3 col-sm-1 side-pict-right"></div>
   </div>
 </div>
 </main>
@@ -96,7 +118,7 @@
 </footer>
 
 
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
 
       
   </body>

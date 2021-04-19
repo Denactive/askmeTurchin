@@ -1,0 +1,15 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  [Discussion] Topic №{{iquestion.id}}
+{% endblock page_heading %}
+
+{% block page_content %}
+{% include "include/question_unit.html" %}
+<!-- v answers v -->
+{% for ianswer in  answers %}
+  {% include "include/answer_unit.html" %}
+{% endfor %}
+<!-- ^ answers ^ -->
+{% endblock page_content %}

@@ -47,6 +47,21 @@ body {
     background-attachment:fixed;
 }
 
+.side-pict-left {
+    background-color: #090909;
+    background-position: 63%;
+    background-image:
+    url(../img/epic\ optimus.jpg);
+    background-size: cover;
+}
+
+.side-pict-right {
+    background-color: #090909;
+    background-position: 80%;
+    background-image: url(../img/epic\ bumblebee.jpg);
+    background-size: cover;
+}
+
 .question-block {
     background-color: #b8b8b8cb;
     box-sizing: border-box;
@@ -191,7 +206,6 @@ font-weight: bolder;
     border-radius: 5px;
     background-color: #17171733;
     border: 1px solid #171717;
-    /* color: #171717; */
 }
 
 .page_btn:hover {
