@@ -5,7 +5,9 @@ from django.db import models
 class User(models.Model):
     
     def __str__(self):
-        self.login
+        if self.login == None:
+            return "ERROR-LOGIN IS NULL"
+        return self.login
 
     class Meta:
         db_table = 'users'
@@ -13,8 +15,7 @@ class User(models.Model):
         verbose_name = 'User'
         verbose_name_plural = 'Users'
     
-    # id = models.CharField(primary_key = True, max_length = 80)
-    login = models.CharField(unique = True, max_length = 80)
+    login = models.CharField(primary_key = True, max_length = 80)
     email = models.CharField(max_length = 200)
     password = models.CharField(max_length = 80)
     avatarlink = models.CharField(max_length = 80)
@@ -27,7 +28,9 @@ class User(models.Model):
 class Tag(models.Model):
     
     def __str__(self):
-        self.tagname
+        if self.tagname == None:
+            return "ERROR-TAG NAME IS NULL"
+        return self.tagname
 
     class Meta:
         db_table = 'tags'
@@ -42,7 +45,9 @@ class Tag(models.Model):
 class Question(models.Model):
     
     def __str__(self):
-        self.title
+        if self.title == None:
+            return "ERROR-QUESTION TITLE IS NULL"
+        return self.title
 
     class Meta():
         db_table = 'questions'
@@ -75,7 +80,9 @@ class Question(models.Model):
 class Answer(models.Model):
     
     def __str__(self):
-        self.text[:50]
+        if self.text == None:
+            return "ERROR-ANSWER TEXT IS NULL"
+        return self.text[:50]
 
     class Meta:
         db_table = 'answers'
@@ -87,7 +94,7 @@ class Answer(models.Model):
     fk_user = models.ForeignKey(User, on_delete = models.CASCADE)
 
     rating = models.IntegerField(default = 0)
-    text = models.TextField()
+    text = models.CharField(max_length=50)
     date = models.DateTimeField(auto_now_add = True)
     marked_correct = models.BooleanField(default = False)
 
