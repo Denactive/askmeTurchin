@@ -5,7 +5,7 @@ from django.db import models
 class User(models.Model):
     
     def __str__(self):
-        pass
+        self.login
 
     class Meta:
         db_table = 'users'
@@ -27,10 +27,10 @@ class User(models.Model):
 class Tag(models.Model):
     
     def __str__(self):
-        pass
+        self.tagname
 
     class Meta:
-        db_table = ''
+        db_table = 'tags'
         managed = True
         verbose_name = 'Tag'
         verbose_name_plural = 'Tags'
@@ -42,7 +42,7 @@ class Tag(models.Model):
 class Question(models.Model):
     
     def __str__(self):
-        pass
+        self.title
 
     class Meta():
         db_table = 'questions'
@@ -75,7 +75,7 @@ class Question(models.Model):
 class Answer(models.Model):
     
     def __str__(self):
-        pass
+        self.text[:50]
 
     class Meta:
         db_table = 'answers'
