@@ -27,6 +27,10 @@ a:hover {
     color: aquamarine;
 }
 
+.navbar-brand a:hover {
+    color: aquamarine;
+}
+
 .aquamarine-border {
     border: 2px solid aquamarine;
     border-radius: 5px;

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 # data
@@ -64,7 +65,11 @@ question_contents = [
             {
                 'tag': f'Megatron is back!',
                 'id': 3,
-            }      
+            },
+            {
+                'tag': f'Hardcore rock',
+                'id': 4,
+            }   
         ] 
     },
     
@@ -141,10 +146,17 @@ answer_contents = [
 ]
 
 # Create your views here.
+# from myapp.models import Contact
 def index(request):
+    # contact_list = Contact.objects.all()
+    # paginator = Paginator(contact_list, 1) # Show 1 contacts per page.
+    # paginator = Paginator(question_contents, 1) # Show 1 contacts per page.
+    # page_number = request.GET.get('page')
+    # question_contents_short_text = paginator.get_page(page_number)
+
     question_contents_short_text = question_contents.copy()
     for i in range(len(question_contents_short_text)):
-        question_contents_short_text[i]['text'] = question_contents[i]['text'][:197] + '...'
+        question_contents_short_text[i]['text'] = question_contents_short_text[i]['text'][:197] + '...'
     return render(request, 'index.html', {'questions': question_contents_short_text})
 
 def question(request, pk):
