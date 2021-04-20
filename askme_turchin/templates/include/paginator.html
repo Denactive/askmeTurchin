@@ -7,5 +7,24 @@
         <button class="text-shadowed page_btn d-flex me-3" href="#">4</button>
         <button class="text-shadowed page_btn d-flex me-3" href="#">5</button>
         <button class="text-shadowed etc d-flex" href="#">. . .</button>
+        {% comment %} <ul>
+            {% if questions.has_previous %}
+                <li class="arrow"><a href="/page/{{ questions.previous_page_number }}/">&laquo;</a></li>
+            {% else %}
+                <li class="arrow unavailable"><a href="">&laquo;</a></li>
+            {% endif %}
+            {% for page in questions.paginator.page_range %}
+                {% if page == questions.number %}
+                    <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if questions.has_next %}
+                <li class="arrow"><a href="/page/{{ questions.next_page_number }}/">&raquo;</a></li>
+            {% else %}
+                <li class="arrow unavailable"><a href="">&raquo;</a></li>
+            {% endif %}
+        </ul> {% endcomment %}
     </div>
 </div>

@@ -146,18 +146,28 @@ answer_contents = [
 ]
 
 # Create your views here.
-# from myapp.models import Contact
-def index(request):
-    # contact_list = Contact.objects.all()
-    # paginator = Paginator(contact_list, 1) # Show 1 contacts per page.
-    # paginator = Paginator(question_contents, 1) # Show 1 contacts per page.
-    # page_number = request.GET.get('page')
-    # question_contents_short_text = paginator.get_page(page_number)
+from app.models import Question
+from app.models import Tag
+from app.models import User
+from app.models import Answer
 
+def paginate(list_, per_page = 5, page = 1):
+    paginator = Paginator(list_, per_page)
+    return paginator.page(page)
+
+def index(request):
     question_contents_short_text = question_contents.copy()
     for i in range(len(question_contents_short_text)):
         question_contents_short_text[i]['text'] = question_contents_short_text[i]['text'][:197] + '...'
     return render(request, 'index.html', {'questions': question_contents_short_text})
+
+def index_page(request, pk=1):
+    contact_list = Question.objects.all()
+    pages = paginate(contact_list, 1, pk)
+    question_contents_short_text = pages.object_list
+    for i in range(len(question_contents_short_text)):
+        question_contents_short_text[i]['text'] = question_contents_short_text[i]['text'][:197] + '...'
+    return render(request, 'index.html', {'questions': question_contents_short_text, 'pages': pages})
 
 def question(request, pk):
     return render(request, 'question.html', {'iquestion': question_contents[pk - 1], 'answers': answer_contents[pk - 1]})

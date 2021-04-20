@@ -17,15 +17,15 @@ class QuestionAdmin(admin.ModelAdmin):
     inlines = [QuestionInline]
     list_filter = ['date']
 
-# class UserAdmin(admin.ModelAdmin):
-#     list_filter = ['reg_date']
+class UserAdmin(admin.ModelAdmin):
+    list_filter = ['reg_date']
 
 # admin.site.register(Question)
-admin.site.register(Question)#, QuestionAdmin)
+admin.site.register(Question, QuestionAdmin)
 # admin.site.register(Answer)
-admin.site.register(Answer)#, AnswerAdmin)
+admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Tag)
-admin.site.register(User)
-# admin.site.register(User, UserAdmin)
+# admin.site.register(User)
+admin.site.register(User, UserAdmin)
 
 

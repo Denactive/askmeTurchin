@@ -27,5 +27,7 @@ urlpatterns = [
     path('signup/', views.reg),
     path('tag/', views.tag_search),
     path('user/', views.user),
+    # path(r'^page/(\+d)/$', views.index_page)
+    path('page/<int:pk>', views.index_page)
     # path('', views.)
 ]

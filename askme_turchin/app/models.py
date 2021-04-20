@@ -94,7 +94,7 @@ class Answer(models.Model):
     fk_user = models.ForeignKey(User, on_delete = models.CASCADE)
 
     rating = models.IntegerField(default = 0)
-    text = models.CharField(max_length=50)
+    text = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
     marked_correct = models.BooleanField(default = False)
 
