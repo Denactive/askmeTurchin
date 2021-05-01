@@ -166,7 +166,7 @@ def index_page(request, pk=1):
     pages = paginate(contact_list, 1, pk)
     question_contents_short_text = pages.object_list
     for i in range(len(question_contents_short_text)):
-        question_contents_short_text[i]['text'] = question_contents_short_text[i]['text'][:197] + '...'
+        question_contents_short_text[i].text = question_contents_short_text[i].text[:197] + '...'
     return render(request, 'index.html', {'questions': question_contents_short_text, 'pages': pages})
 
 def question(request, pk):

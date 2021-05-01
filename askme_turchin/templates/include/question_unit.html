@@ -27,11 +27,12 @@
         <div><a href="{% url "question" pk=iquestion.id %}">answers({{ iquestion.answers_num }})</a></div>
         <div class="px-2">
           <strong class="graphik-space-black">Tags:</strong> 
-            {% comment %} TODO: dynamic reverse tag drop {% endcomment %}
             {% for itag in iquestion.tags %}
                 <a href="#">{{itag.tag}}</a>
-                {% comment %} <a href="{% url "tag" iquestion.tag %}">{{itag.tag}}</a> {% endcomment %}
             {% endfor %}
+            {% comment %} {% for itag in iquestion.fk_tags %}
+                <a href="#">{{itag.tag}}</a>
+            {% endfor %} {% endcomment %}
         </div>
       </div>
     </div>

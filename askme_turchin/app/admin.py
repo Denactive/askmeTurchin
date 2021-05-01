@@ -4,7 +4,7 @@ from app.models import Question, Answer, Tag, User
 # Register your models here.
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ['fk_question', 'fk_user', 'text', 'marked_correct']
+    fields = ['fk_question', 'fk_user', 'text', 'marked_correct' ]
     list_filter = ['date']
 
 class QuestionInline(admin.StackedInline):
