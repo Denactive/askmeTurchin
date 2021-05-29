@@ -1,28 +1,42 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from datetime import datetime
+from django.db.models import Sum
 # Create your models here.
 
-class User(models.Model):
-    
-    def __str__(self):
-        if self.login == None:
-            return "ERROR-LOGIN IS NULL"
-        return self.login
-
-    class Meta:
-        db_table = 'users'
-        managed = True
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
-    
-    login = models.CharField(primary_key = True, max_length = 80)
-    email = models.CharField(max_length = 200)
-    password = models.CharField(max_length = 80)
-    avatarlink = models.CharField(max_length = 80)
-    nickname = models.CharField(max_length = 80)
-    reg_date = models.DateTimeField(auto_now_add = True)
-
     # TODO: metod returning userlink
+
+        
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+
+    class Profile(models.Model):
+        user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+        avatarlink = models.ImageField(upload_to='img/', null=True, blank=True)
+        # login = models.CharField(primary_key = True, max_length = 80)
+        # email = models.CharField(max_length = 200)
+        # password = models.CharField(max_length = 80)
+        # avatarlink = models.CharField(max_length = 80)
+        # nickname = models.CharField(max_length = 80)
+        # reg_date = models.DateTimeField(auto_now_add = True)
+
+        def __str__(self):
+            if self.user.username == None:
+            return "ERROR-LOGIN IS NULL"
+            return self.user.username
+
+        class Meta:
+            verbose_name = 'User profile'
+            verbose_name_plural = 'User profiles'
 
 
 class Tag(models.Model):
@@ -64,6 +78,25 @@ class Question(models.Model):
     title = models.CharField(max_length = 200)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
+    
+    class QuestionManager(models.Manager):
+        def get_popular(self):
+            return self.all().order_by('-rating').prefetch_related('user', 'tags')
+
+        def get_new(self):
+            return self.all().order_by('-date').prefetch_related('user', 'tags')
+
+        def get_by_tag(tag):
+            questions_tagged = self.all().filter(tags__tag__iexact=search_tag).prefetch_related('user')
+            if not questions:
+                raise Http404
+            return questions_tagged
+
+        def get_by_id(id):
+            try:
+                question = self.get(pk=id)
+            except ObjectDoesNotExist:
+                raise Http404
 
     # 'id': ,
     #     'userlink': f'#',

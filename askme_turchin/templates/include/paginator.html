@@ -1,30 +1,30 @@
 <!-- пагинатор -->
 <div class="row" style="margin-top: 20px; margin-bottom: 50px;">
     <div class="paginator info d-flex flex-row justify-content-start align-items-center">
-        <button class="text-shadowed page_btn page_btn_select d-flex me-3" href="#">1</button>
-        <button class="text-shadowed page_btn d-flex me-3" href="#">2</button>
-        <button class="text-shadowed page_btn d-flex me-3" href="#">3</button>
-        <button class="text-shadowed page_btn d-flex me-3" href="#">4</button>
-        <button class="text-shadowed page_btn d-flex me-3" href="#">5</button>
-        <button class="text-shadowed etc d-flex" href="#">. . .</button>
-        {% comment %} <ul>
-            {% if questions.has_previous %}
-                <li class="arrow"><a href="/page/{{ questions.previous_page_number }}/">&laquo;</a></li>
-            {% else %}
-                <li class="arrow unavailable"><a href="">&laquo;</a></li>
+        {% if 1 <= page.min_page and page.list.paginator.num_pages != 1%}
+            <button class="text-shadowed page_btn d-flex me-3" href="?page=1">1 &laquo</button>
+        {% endif %}
+
+        {% if page.list.has_previous and page.list.previous_page_number != 1%}
+            {% if page.min_page > 1 %}
+            <button class="text-shadowed page_btn d-flex me-3" href="#">...</button>
+            {% endif %} 
+        {% endif %}
+
+        {% for p in page.list.paginator.page_range%}
+            {% if p > page.min_page and p < page.max_page and page.list.paginator.num_pages != 1%}
+            <button class="text-shadowed page_btn d-flex me-3 {% if p == page.list.number %}page_btn_select{% endif %}" href="?page={{p}}">{{p}}</button>
             {% endif %}
-            {% for page in questions.paginator.page_range %}
-                {% if page == questions.number %}
-                    <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
-                {% else %}
-                    <li><a href="/page/{{ page }}/">{{ page }}</a></li>
-                {% endif %}
-            {% endfor %}
-            {% if questions.has_next %}
-                <li class="arrow"><a href="/page/{{ questions.next_page_number }}/">&raquo;</a></li>
-            {% else %}
-                <li class="arrow unavailable"><a href="">&raquo;</a></li>
+        {% endfor %}
+
+        {% if page.list.has_next %}
+            {% if page.max_page < page.list.paginator.num_pages%}
+            <button class="text-shadowed page_btn d-flex me-3" href="#">...</button>
             {% endif %}
-        </ul> {% endcomment %}
+        {% endif %}
+
+        {% if page.max_page <= page.list.paginator.num_pages%}
+            <button class="text-shadowed page_btn d-flex me-3" href="?page={{ page.list.paginator.num_pages }}">&raquo; {{ page.list.paginator.num_pages }}</button>
+        {% endif %}
     </div>
 </div>
