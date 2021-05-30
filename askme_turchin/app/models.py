@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import ObjectDoesNotExist
-from django.db.models import Count
+from django.db.models import Sum, Count
 from django.http import HttpResponse, Http404
 from django.contrib.auth.models import User
 from django.dispatch import receiver
@@ -103,7 +103,7 @@ class Question(models.Model):
     fk_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
     fk_tags = models.ManyToManyField(Tag)
 
-    rating = models.IntegerField(default = 0)
+    _rating = models.IntegerField(default = 0)
     _answers_num = models.IntegerField(default = 0)
     title = models.CharField(max_length = 255)
     text = models.TextField()
@@ -114,6 +114,16 @@ class Question(models.Model):
         _answers_num = Answer.objects.all().filter(fk_question=self.id).count()
         print("answers_num changed to: ", _answers_num)
         return _answers_num
+
+    @property
+    def rating(self):
+        q = QuestionRatingMark.objects.all().filter(fk_question=self.id)
+        sum = 0
+        for i in q:
+            sum += i.vote
+        _rating = sum
+        print("Q-rating changed to: ", _rating)
+        return _rating
 
     # 'id': ,
     #     'userlink': f'#',
@@ -163,10 +173,20 @@ class Answer(models.Model):
     fk_question = models.ForeignKey(Question, on_delete = models.CASCADE)
     fk_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
 
-    rating = models.IntegerField(default = 0)
+    _rating = models.IntegerField(default = 0)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
     marked_correct = models.BooleanField(default = False)
+
+    @property
+    def rating(self):
+        q = AnswerRatingMark.objects.all().filter(fk_answer=self.id)
+        sum = 0
+        for i in q:
+            sum += i.vote
+        _rating = sum
+        print("A-rating changed to: ", _rating)
+        return _rating
 
     # {
     #     'id': ,
@@ -176,3 +196,36 @@ class Answer(models.Model):
     #     'correction_rating': ,
     #     'text': f''
     # }
+
+    # likes
+class QuestionRatingMark(models.Model):
+    votes = [(1, 'like'), (-1, 'dislike'), (0, 'none'), ]
+
+    vote = models.IntegerField(choices=votes, default=0)
+    fk_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    fk_question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.fk_question.title + '-' + self.fk_profile.user.username + ': ' + str(self.vote)
+
+    class Meta:
+        verbose_name = 'Q-VoteMark'
+        verbose_name_plural = 'Q-VoteMarks'
+    
+    def update_rating(self):
+            self.question.rating += self.vote
+
+
+class AnswerRatingMark(models.Model):
+    votes = [(1, 'like'), (-1, 'dislike'), (0, 'none'), ]
+
+    vote = models.IntegerField(choices=votes, default=0)
+    fk_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    fk_answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.fk_answer.text[:10] + '-' + self.fk_profile.user.username+ ': ' + str(self.vote)
+
+    class Meta:
+        verbose_name = 'A-VoteMark'
+        verbose_name_plural = 'A-VoteMarks'
