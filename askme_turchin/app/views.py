@@ -203,18 +203,12 @@ def index(request):
 # def index_page(request, pk=1): # передавал страницу как часть урла
 def index_page(request):
     contact_list = Question.objects.all()
-    questions = paginate(contact_list, request, 1)
+    questions = paginate(contact_list, request, 5)
     return render(request, 'index.html', {'page': questions})
-    # questions = paginate(questns, request, 3)
-    #question_contents_short_text = pages.object_list
-    #for i in range(len(question_contents_short_text)):
-    #    question_contents_short_text[i].text = question_contents_short_text[i].text[:197] + '...'
-    #return render(request, 'index.html', {'questions': question_contents_short_text, 'pages': pages})
 
 def question(request, pk):
     question = Question.objects.get(pk=pk)
-    # question.update_answers_num()
-    answers = paginate(Answer.objects.get_by_question_id(pk), request, 1)
+    answers = paginate(Answer.objects.get_by_question_id(pk), request, 5)
     return render(request, 'question.html', {'question': question, 'page': answers})
 
 def ask(request):
@@ -231,3 +225,12 @@ def tag_search(request):
 
 def user(request):
     return render(request, 'user.html')
+
+def popular_questions(request):
+    contact_list = Question.objects.get_popular()
+    top10 = []
+    for i in range(10):
+        top10.append(contact_list)
+    print(top10)
+    questions = paginate(top10, request, 1)
+    return render(request, 'index.html', {'page': questions})

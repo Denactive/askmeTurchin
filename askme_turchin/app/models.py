@@ -65,14 +65,30 @@ class Tag(models.Model):
     # TODO: metod returning tag_search_link
 
 class QuestionManager(models.Manager):
-    def get_popular(self):
-        return self.all().order_by('-rating').prefetch_related('user', 'tags')
-
     def get_new(self):
-        return self.all().order_by('-date').prefetch_related('user', 'tags')
+        return self.select_related().order_by("-date").prefetch_related('fk_profile', 'fk_tags')
+    
+    def get_popular(self):
+        return self.order_by("-_rating").select_related('fk_profile')
+        # db = MySQLdb.connect(user='admin', db='db', passwd='secret', host='localhost')
+        # cursor = db.cursor()
+        # cursor.execute('SELECT name FROM books ORDER BY name')
+        # names = [row[0] for row in cursor.fetchall()]
+        # db.close()
+
+    # def get_popular(self):
+    #     #update
+    #     q = Question.objects.all()
+    #     for i in q:
+    #         i.rating
+        
+    #     return q.order_by('_rating').prefetch_related('fk_profile', 'fk_tags')
+
+    # def get_new(self):
+    #     return self.all().order_by('-date').prefetch_related('fk_profile', 'fk_tags')
 
     def get_by_tag(tag):
-        questions_tagged = self.all().filter(tags__tag__iexact=search_tag).prefetch_related('user')
+        questions_tagged = self.all().filter(tags__tag__iexact=search_tag).prefetch_related('fk_profile')
         if not questions:
             raise Http404
         return questions_tagged

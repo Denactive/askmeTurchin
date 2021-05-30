@@ -30,7 +30,8 @@
     </div>
     <div class="question-footer">
       <div class="d-flex">
-        <div><a href="{% url "question" pk=question.id %}">answers({{ question.answers_num }})</a></div>
+        {% comment %} <div><a href="{% url "question" pk=question.id %}">answers({{ question.answers_num }})</a></div> {% endcomment %}
+        <div><a href="#">answers({{ question.answers_num }})</a></div>
         <div class="px-2">
           <strong class="graphik-space-black">Tags:</strong> 
             {% for itag in question.fk_tags.all %}
