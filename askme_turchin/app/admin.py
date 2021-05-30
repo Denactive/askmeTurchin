@@ -1,10 +1,10 @@
 from django.contrib import admin
-from app.models import Question, Answer, Tag, User
+from app.models import Question, Answer, Tag, Profile
 
 # Register your models here.
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ['fk_question', 'fk_user', 'text', 'marked_correct' ]
+    fields = ['fk_question', 'fk_profile', 'text', 'marked_correct' ]
     list_filter = ['date']
 
 class QuestionInline(admin.StackedInline):
@@ -13,7 +13,7 @@ class QuestionInline(admin.StackedInline):
     extra = 1
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = ['fk_user', 'fk_tags', 'answers_num', 'title', 'text']
+    fields = ['fk_profile', 'fk_tags', 'title', 'text']
     inlines = [QuestionInline]
     list_filter = ['date']
 
@@ -26,6 +26,8 @@ admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Tag)
 # admin.site.register(User)
-admin.site.register(User, UserAdmin)
+# admin.site.register(Profile, UserAdmin)
+# admin.site.unregister(User)
+admin.site.register(Profile)
 
 

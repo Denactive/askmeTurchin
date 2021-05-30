@@ -73,6 +73,30 @@ question_contents = [
         ] 
     },
     
+    {
+        'id': 2,
+        'userlink': f'#',
+        'username': f'Megatron',
+        'avatarlink': f'img/megatron.png',
+        'title': f'Autobots must die',
+        'rating': 15,
+        'answers_num': 3,
+        'text': f'Что может быть прекраснее профессии врача? Она сложна и интересна. Она привлекает высокой социальной значимостью и уважением, каким пользуется в обществе. Игра во врача — одна из первых социальных детских игр, и сегодня она практически вытеснила игру в войну. Однако не все так просто, ведь эта профессия, наряду, к примеру, с профессией педагога, относится к «профессиям призвания», а это значит, что низкий уровень зарплат в этой индустрии компенсируется высоким профессиональным интересом и мотивацией ее представителей к работе. И, несмотря на трудности и критику отечественной медицины, работа врачей полна благородства и самоотдачи.',
+        'tags': [
+            {
+                'tag': f'Bay\'s operating systems',
+                'id': 1,
+            },
+            {
+                'tag': f'Megatron is back!',
+                'id': 3,
+            },
+            {
+                'tag': f'Hardcore rock',
+                'id': 4,
+            }   
+        ] 
+    }
     # {
     #     'id': ,
     #     'userlink': f'#',
@@ -171,6 +195,7 @@ def index(request):
     question_contents_short_text = question_contents.copy()
     for i in range(len(question_contents_short_text)):
         question_contents_short_text[i]['text'] = question_contents_short_text[i]['text'][:197] + '...'
+    # 3-й параметр - это контекст
     return render(request, 'index.html', {'questions': question_contents_short_text})
 
 
@@ -187,7 +212,9 @@ def index_page(request):
     #return render(request, 'index.html', {'questions': question_contents_short_text, 'pages': pages})
 
 def question(request, pk):
-    return render(request, 'question.html', {'iquestion': question_contents[pk - 1], 'answers': answer_contents[pk - 1]})
+    question = Question.objects.get(pk=pk)
+    answers = paginate(Answer.objects.get_by_question_id(pk), request, 1)
+    return render(request, 'question.html', {'question': question, 'page': answers})
 
 def ask(request):
     return render(request, 'ask.html')

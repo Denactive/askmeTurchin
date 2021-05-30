@@ -9,7 +9,7 @@
 {% endblock page_heading_url %}
 
 {% block page_content %}
-  {% for iquestion in page.list %}
+  {% for question in page.list %}
     {% include "include/question_unit.html" %}
   {% endfor %}
   {% include "include/paginator.html" %}
