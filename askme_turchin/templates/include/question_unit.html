@@ -3,7 +3,7 @@
   <div class="row">
     <div class="avatar-wrapper">
       <div class="avatar" style="background-image: url('{% static question.fk_profile.avatarlink %}'); background-size: cover;"></div>
-      <div style="display: flex;">
+      <div style="display: flex; width: 148px; overflow: hidden; word-wrap: break-word;">
         <a class="graphik-space-black-links-30" href="{{ question.fk_profile.userlink }}">{{ question.fk_profile.user.username }}</a>
       </div>
     </div>

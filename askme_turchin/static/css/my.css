@@ -116,6 +116,7 @@ body {
 
 .avatar-wrapper a:hover {
     color: aquamarine;
+    width: 152px;
 }
 
 .avatar {
