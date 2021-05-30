@@ -13,7 +13,7 @@ class QuestionInline(admin.StackedInline):
     extra = 1
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = ['fk_profile', 'fk_tags', 'title', 'text']
+    fields = ['fk_profile', 'fk_tags', 'answers_num', 'title', 'text']
     inlines = [QuestionInline]
     list_filter = ['date']
 

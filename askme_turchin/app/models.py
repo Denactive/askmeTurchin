@@ -86,7 +86,7 @@ class QuestionManager(models.Manager):
 
 
 class Question(models.Model):
-    
+        
     def __str__(self):
         if self.title == None:
             return "ERROR-QUESTION TITLE IS NULL"
@@ -104,15 +104,16 @@ class Question(models.Model):
     fk_tags = models.ManyToManyField(Tag)
 
     rating = models.IntegerField(default = 0)
-    # TODO: updating answers_num
-    # answers_num = models.IntegerField(default = 0)
+    _answers_num = models.IntegerField(default = 0)
     title = models.CharField(max_length = 255)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
 
-    # def update_answers_num(self, num):
-        # answers_num = num
-        # return
+    @property
+    def answers_num(self):
+        _answers_num = Answer.objects.all().filter(fk_question=self.id).count()
+        print("answers_num changed to: ", _answers_num)
+        return _answers_num
 
     # 'id': ,
     #     'userlink': f'#',

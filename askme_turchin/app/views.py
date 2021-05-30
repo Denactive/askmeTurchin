@@ -213,6 +213,7 @@ def index_page(request):
 
 def question(request, pk):
     question = Question.objects.get(pk=pk)
+    # question.update_answers_num()
     answers = paginate(Answer.objects.get_by_question_id(pk), request, 1)
     return render(request, 'question.html', {'question': question, 'page': answers})
 
