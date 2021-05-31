@@ -27,7 +27,10 @@
 
             {% if page.list.has_next %}
                 {% if page.max_page < page.list.paginator.num_pages%}
-                    <button class="text-shadowed page_btn d-flex me-3" href="#">...</button>
+                    <form>
+                        <input type="hidden" name="page" value="{{page.number|add:step}}" />
+                        <button class="text-shadowed page_btn d-flex me-3">...</button>
+                    </form>
                 {% endif %}
             {% endif %}
 

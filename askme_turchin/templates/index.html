@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block page_heading %}
-  New Topics
+  {{header}}
 {% endblock page_heading %}
 {% block page_heading_url %}
-  <a style="font-size: 30px;" href="popular/">Popular</a>
+  <a style="font-size: 30px;" href="{{url}}">{{link}}</a>
 {% endblock page_heading_url %}
 
 {% block page_content %}

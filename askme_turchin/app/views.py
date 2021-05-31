@@ -202,14 +202,14 @@ def index(request):
 
 # def index_page(request, pk=1): # передавал страницу как часть урла
 def index_page(request):
-    contact_list = Question.objects.all()
+    contact_list = Question.objects.get_new()
     questions = paginate(contact_list, request, 5)
-    return render(request, 'index.html', {'page': questions})
+    return render(request, 'index.html', {'page': questions, 'step': '5', 'header': "New Topics", 'link': "Popular", 'url': "/popular/"})
 
 def question(request, pk):
     question = Question.objects.get(pk=pk)
     answers = paginate(Answer.objects.get_by_question_id(pk), request, 5)
-    return render(request, 'question.html', {'question': question, 'page': answers})
+    return render(request, 'question.html', {'question': question, 'page': answers, 'step': '2'})
 
 def ask(request):
     return render(request, 'ask.html')
@@ -229,8 +229,16 @@ def user(request):
 def popular_questions(request):
     contact_list = Question.objects.get_popular()
     top10 = []
-    for i in range(10):
-        top10.append(contact_list)
-    print(top10)
-    questions = paginate(top10, request, 1)
-    return render(request, 'index.html', {'page': questions})
+    i = 0
+    for contact in contact_list:
+        if (i < 10):
+            top10.append(contact)
+            i += 1
+    print("top10: ", top10)
+    questions = paginate(top10, request, 10)
+    return render(request, 'index.html', {'page': questions, 'header': 'Popular', 'link': "New", 'url': "/"})
+
+def tag(request, pk):
+    contact_list = Question.objects.get_by_tag(pk)
+    questions = paginate(contact_list, request, 5)
+    return render(request, 'index.html', {'page': questions, 'header': "Tag '" + pk + "'", 'link': "", 'url': ""})

@@ -45,7 +45,7 @@ class Profile(models.Model):
 
     @property   
     def userlink(self):
-        return "user/" + self.user.username
+        return "/user/" + self.user.username + "/"
 
 
 class Tag(models.Model):
@@ -62,14 +62,17 @@ class Tag(models.Model):
         verbose_name_plural = 'Tags'
 
     tagname = models.CharField(primary_key = True, max_length = 255)
-    # TODO: metod returning tag_search_link
+
+    @property
+    def link(self):
+        return "/tag/" + self.tagname + "/"
 
 class QuestionManager(models.Manager):
     def get_new(self):
         return self.select_related().order_by("-date").prefetch_related('fk_profile', 'fk_tags')
     
     def get_popular(self):
-        return self.order_by("-_rating").select_related('fk_profile')
+        return self.select_related().order_by("-hidden_rating").prefetch_related('fk_profile')
         # db = MySQLdb.connect(user='admin', db='db', passwd='secret', host='localhost')
         # cursor = db.cursor()
         # cursor.execute('SELECT name FROM books ORDER BY name')
@@ -87,13 +90,13 @@ class QuestionManager(models.Manager):
     # def get_new(self):
     #     return self.all().order_by('-date').prefetch_related('fk_profile', 'fk_tags')
 
-    def get_by_tag(tag):
-        questions_tagged = self.all().filter(tags__tag__iexact=search_tag).prefetch_related('fk_profile')
+    def get_by_tag(self, tag):
+        questions = Question.objects.all().filter(fk_tags__tagname__iexact=tag).prefetch_related('fk_profile')
         if not questions:
             raise Http404
-        return questions_tagged
+        return questions
 
-    def get_by_id(id):
+    def get_by_id(self,id):
         try:
             question = self.prefetch_related('fk_profile', 'fk_tags').get(pk=id)
         except ObjectDoesNotExist:
@@ -119,11 +122,15 @@ class Question(models.Model):
     fk_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
     fk_tags = models.ManyToManyField(Tag)
 
-    _rating = models.IntegerField(default = 0)
+    hidden_rating = models.IntegerField(default = 0)
     _answers_num = models.IntegerField(default = 0)
     title = models.CharField(max_length = 255)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
+
+    @property
+    def link(self):
+        return "/question/" + str(self.id) + "/"
 
     @property
     def answers_num(self):
@@ -137,9 +144,9 @@ class Question(models.Model):
         sum = 0
         for i in q:
             sum += i.vote
-        _rating = sum
-        print("Q-rating changed to: ", _rating)
-        return _rating
+        hidden_rating = sum
+        print("Q-rating changed to: ", hidden_rating)
+        return hidden_rating
 
     # 'id': ,
     #     'userlink': f'#',

@@ -9,7 +9,8 @@
     </div>
     <div class="text-container">
       <h2>
-        <a href="{% url "question" pk=question.id %}">{{ question.title }}</a>
+        {% comment %} <a href="{% url "question" pk=question.id %}">{{ question.title }}</a> {% endcomment %}
+        <a href="{{question.link}}">{{ question.title }}</a>
       </h2>
       <p>{{ question.text }}</p>
     </div>
@@ -31,15 +32,12 @@
     <div class="question-footer">
       <div class="d-flex">
         {% comment %} <div><a href="{% url "question" pk=question.id %}">answers({{ question.answers_num }})</a></div> {% endcomment %}
-        <div><a href="#">answers({{ question.answers_num }})</a></div>
+        <div><a href="{{question.link}}">answers({{ question.answers_num }})</a></div>
         <div class="px-2">
           <strong class="graphik-space-black">Tags:</strong> 
             {% for itag in question.fk_tags.all %}
-                <a href="#">{{itag.tagname}}</a>
+                <a href="{{itag.link}}">{{itag.tagname}}</a>
             {% endfor %}
-            {% comment %} {% for itag in question.fk_tags %}
-                <a href="#">{{itag.tag}}</a>
-            {% endfor %} {% endcomment %}
         </div>
       </div>
     </div>
