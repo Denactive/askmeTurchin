@@ -1,0 +1,45 @@
+{% load static %}
+<div class="row question info">
+  <div class="row">
+    <div class="avatar-wrapper">
+      <div class="avatar" style="background-image: url('{% static question.fk_profile.avatarlink %}'); background-size: cover;"></div>
+      <div style="display: flex; width: 148px; overflow: hidden; word-wrap: break-word;">
+        <a class="graphik-space-black-links-30" href="{{ question.fk_profile.userlink }}">{{ question.fk_profile.user.username }}</a>
+      </div>
+    </div>
+    <div class="text-container">
+      <h2>
+        {% comment %} <a href="{% url "question" pk=question.id %}">{{ question.title }}</a> {% endcomment %}
+        <a href="{{question.link}}">{{ question.title }}</a>
+      </h2>
+      <p>{{ question.text }}</p>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="like-section d-flex justify-content-between">
+      <div class="like-icons">
+        {% comment %} <form action="{% url ""%}"> {% endcomment %}
+        <form>
+          <button type="submit" class="page_btn"><img src="{% static "img/like.png" %}" width="24px" height="24px"/></button>
+        </form>
+        {% comment %} <form action="{% url ""%}"> {% endcomment %}
+        <form>
+          <button type="submit" class="page_btn"><img src="{% static "img/dislike.png" %}" width="24px" height="24px"/></button>
+        </form>
+      </div>
+      <div><strong>{{ question.rating }}</strong></div> 
+    </div>
+    <div class="question-footer">
+      <div class="d-flex">
+        {% comment %} <div><a href="{% url "question" pk=question.id %}">answers({{ question.answers_num }})</a></div> {% endcomment %}
+        <div><a href="{{question.link}}">answers({{ question.answers_num }})</a></div>
+        <div class="px-2">
+          <strong class="graphik-space-black">Tags:</strong> 
+            {% for itag in question.fk_tags.all %}
+                <a href="{{itag.link}}">{{itag.tagname}}</a>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

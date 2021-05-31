@@ -1,0 +1,31 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  Settings: Bumblebee
+{% endblock page_heading %}
+
+{% block page_content %}
+<form>
+  <div class="mb-3 ms-3 me-3">
+    <label for="uLogin" class="form-label"><strong>Login</strong></label>
+    <input type="text" class="form-control info input-group" id="uLogin" placeholder="логин">
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="uEmail" class="form-label"><strong>E-mail</strong></label>
+    <input type="text" class="form-control info input-group" id="uEmail" placeholder="электронная почта">
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="uNickname" class="form-label"><strong>Nickname</strong></label>
+    <input type="text" class="form-control info input-group" id="uNickname" placeholder="имя на сайте">
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="uAvatar" class="form-label"><strong>Avatar</strong></label>
+    <div class="preview info" id="uAvatar">
+      <img src="{% static "img/bumblebee.png" %}" class="preview" width="250px" height="250px">
+      <input type="file" class="form-control info input-group">
+    </div>
+  </div>
+  <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Save</button>
+</form>
+{% endblock page_content %}

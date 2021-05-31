@@ -1,0 +1,45 @@
+<!-- пагинатор -->
+<div class="row" style="margin-top: 20px; margin-bottom: 50px;">
+    {% if page.list.paginator.num_pages > 1%}
+        <div class="paginator info d-flex flex-row justify-content-start align-items-center">
+            {% if 1 <= page.min_page and page.list.paginator.num_pages != 1%}
+                <form>
+                    <input type="hidden" name="page" value="1" />
+                    <button type="submit" class="text-shadowed page_btn d-flex me-3">1&laquo;</button>
+                </form>
+                
+            {% endif %}
+
+            {% if page.list.has_previous and page.list.previous_page_number != 1%}
+                {% if page.min_page > 1 %}
+                    <button class="text-shadowed page_btn d-flex me-3">...</button>
+                {% endif %} 
+            {% endif %}
+
+            {% for p in page.list.paginator.page_range%}
+                {% if p > page.min_page and p < page.max_page and page.list.paginator.num_pages != 1%}
+                    <form>
+                        <input type="hidden" name="page" value="{{p}}" />
+                        <button type="submit" class="text-shadowed page_btn d-flex me-3 {% if p == page.list.number %}page_btn_select{% endif %}">{{p}}</button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+
+            {% if page.list.has_next %}
+                {% if page.max_page < page.list.paginator.num_pages%}
+                    <form>
+                        <input type="hidden" name="page" value="{{page.number|add:step}}" />
+                        <button class="text-shadowed page_btn d-flex me-3">...</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+
+            {% if page.max_page <= page.list.paginator.num_pages%}
+                <form>
+                    <input type="hidden" name="page" value="{{ page.list.paginator.num_pages }}" />
+                    <button type="submit" class="text-shadowed page_btn d-flex me-3">{{ page.list.paginator.num_pages }}&raquo;</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

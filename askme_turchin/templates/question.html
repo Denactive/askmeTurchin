@@ -1,0 +1,19 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  [Discussion] Topic №{{question.id}}
+{% endblock page_heading %}
+
+{% block page_content %}
+{% include "include/question_unit.html" %}
+
+<!-- v answers v -->
+<div id="answers">
+  {% for ianswer in page.list %}
+    {% include "include/answer_unit.html" %}
+  {% endfor %}
+  <!-- ^ answers ^ -->
+  {%include "include/paginator.html" %}
+</div>
+{% endblock page_content %}

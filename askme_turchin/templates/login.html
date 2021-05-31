@@ -1,0 +1,24 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  Log in
+{% endblock page_heading %}
+
+{% block page_content %}
+<form class="info">
+  <div class="mb-3 ms-3 me-3">
+    <label for="logLogin" class="form-label"><strong>Login</strong></label>
+    <input type="text" class="form-control info input-group" id="logLogin" placeholder="логин" required>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+      <label for="logPassword" class="form-label">Password</label>
+      <input type="password" class="input-group form-control info is-invalid" id="logPassword" placeholder="секретный шифр" required>
+      <div id="logPassword"  class="invalid-feedback ms-2">Wrong username or password</div>
+  </div>
+  <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Log in!</button>
+</form>
+<div class="d-block zindex-tooltip mb-5">
+  <a href="/signup"> Have no account? Create!</a>
+</div>
+{% endblock page_content %}

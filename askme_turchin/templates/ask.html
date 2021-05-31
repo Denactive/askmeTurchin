@@ -1,0 +1,26 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block page_heading %}
+  New Question
+{% endblock page_heading %}
+
+{% block page_content %}
+<form class="info">
+  <div class="mb-3 ms-3 me-3">
+    <label for="nqTitle" class="form-label"><strong>Title</strong></label>
+    <input type="text" class="form-control input-group" id="nqTitle" aria-describedby="nqTitleHelp">
+    <div id="nqTitleHelp" class="graphik-black">Write here some attractive phrase</div>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="nqText" class="form-label"><strong>Text</strong></label>
+    <textarea class="form-control input-group" id="nqText" name="nqText" cols="48" rows="8"></textarea>
+  </div>
+  <div class="mb-3 ms-3 me-3">
+    <label for="nqTags" class="form-label"><strong>Tags</strong></label>
+    <input type="text" class="form-control input-group" id="nqTags" aria-describedby="nqTagsHelp">
+    <div id="nqTagsHelp" class="graphik-black">Point out tags which describe a question properly</div>
+  </div>
+  <button type="submit" class="btn text-white bg-secondary aquamarine-border ms-3">Ask!</button>
+</form>
+{% endblock page_content %}
